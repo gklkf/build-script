@@ -1,0 +1,22 @@
+diff --git a/drivers/input/touchscreen/fts_521/fts_lib/ftsIO.c b/drivers/input/touchscreen/fts_521/fts_lib/ftsIO.c
+index 57cee43ae04c..42411830d197 100644
+--- a/drivers/input/touchscreen/fts_521/fts_lib/ftsIO.c
++++ b/drivers/input/touchscreen/fts_521/fts_lib/ftsIO.c
+@@ -101,7 +101,7 @@ int changeSAD(u8 sad)
+ * Retrieve the pointer to the device struct of the IC
+ * @return a the device struct pointer if client was previously set or NULL in all the other cases
+ */
+-struct device *getDev()
++struct device *getDev(void)
+ {
+ 	if (client != NULL)
+ 		return &(getClient()->dev);
+@@ -114,7 +114,7 @@ struct device *getDev()
+ * Retrieve the pointer of the i2c_client struct representing the IC as i2c slave
+ * @return client if it was previously set or NULL in all the other cases
+ */
+-struct i2c_client *getClient()
++struct i2c_client *getClient(void)
+ {
+ 	if (client != NULL)
+ 		return (struct i2c_client *)client;
