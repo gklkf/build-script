@@ -6,13 +6,13 @@ setup_export() {
     export KERNEL_PATH=~/Repos/kernels/kernel_xiaomi_cepheus
     export ANYKERNEL_PATH=~/Repos/AnyKernel3
     export BUILDER_PATH=$PWD
-    export CLANG_PATH=~/Repos/toolchains/proton-clang
+    export CLANG_PATH=~/Repos/toolchains/WeebX-Clang-17.0.6
     export PATH=${CLANG_PATH}/bin:${PATH}
     # export CLANG_TRIPLE=aarch64-linux-gnu- # Enable when use google AOSP clang
     export ARCH=arm64
     export SUBARCH=arm64
     export KERNEL_DEFCONFIG=raphael_defconfig
-    export VOID_FIX_PATCH=false # Enable fix-void-err-patch;disable when use proton clang 13
+    # export VOID_FIX_PATCH=false # Enable fix-void-err-patch when use proton clang 13;(The kernel source code has changed so it's no longer needed)
     export SETUP_ENVIRONMENT=false # Set up the build environment
     export SETUP_KERNELSU=true # Enable if you want KernelSU
     export USE_KPROBES=true # Integrate with kprobe or patch
@@ -121,11 +121,11 @@ else
    echo [INFO] KernelSU will not be Compiled
 fi
 
-if test $VOID_FIX_PATCH = true
-then    
-    echo [INFO]Applay fix-void-err-patch
-    setup_void_fix
-fi
+# if test $VOID_FIX_PATCH = true
+# then    
+#     echo [INFO]Applay fix-void-err-patch
+#     setup_void_fix
+# fi
 
 clean
 build_kernel
