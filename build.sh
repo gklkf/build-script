@@ -54,9 +54,11 @@ setup_kernelsu() {
     if test $USE_KPROBES = true 
     then
         echo [INFO] Enable KPROBES
+        # echo "" >> "arch/$ARCH/configs/$KERNEL_DEFCONFIG"       # Uncomment when end-of-file setup items overlap
         scripts/config --file "arch/$ARCH/configs/$KERNEL_DEFCONFIG" -e MODULES -e KPROBES -e HAVE_KPROBES -e KPROBE_EVENTS     # Enable KPROBES
     else
         echo [INFO] KernelSU patch
+        # echo "" >> "arch/$ARCH/configs/$KERNEL_DEFCONFIG" 
         scripts/config --file "arch/$ARCH/configs/$KERNEL_DEFCONFIG" -e KSU     # Enable KSU
         git apply $BUILDER_PATH/ksu-patch/*.patch       # Apply kenelSU patchs
     fi
