@@ -19,6 +19,9 @@ setup_export() {
 ## Select KernelSU tag or branch; Stable tag: KERNELSU_TAG=stable; Dev branch: KERNELSU_TAG=main; Custom tag(Such as v0.5.2): KERNELSU_TAG=V0.5.2
     export KERNELSU_TAG=stable  
     # export ENABLE_LTO=false   # Enable LTO optimize
+## override the user@host string displayed during boot and in /proc/version
+    export KBUILD_BUILD_USER="tester"   
+    export KBUILD_BUILD_HOST="raphael"
 }
 
 update_kernel() {
